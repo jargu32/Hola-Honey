@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const WaitlistForm = () => {
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [status, setStatus] = useState('idle'); // idle, submitting, success
 
     const handleSubmit = (e) => {
@@ -10,9 +11,10 @@ const WaitlistForm = () => {
 
         // Simulate API call
         setTimeout(() => {
-            console.log(`Waitlist submission: ${email}`);
+            console.log(`Waitlist submission: ${email}, Phone: ${phone}`);
             setStatus('success');
             setEmail('');
+            setPhone('');
         }, 1500);
     };
 
@@ -37,11 +39,19 @@ const WaitlistForm = () => {
                             <div className="input-group">
                                 <input
                                     type="email"
-                                    placeholder="Enter your email address"
+                                    placeholder="Email Address"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="email-input"
+                                    className="form-input"
+                                    disabled={status === 'submitting'}
+                                />
+                                <input
+                                    type="tel"
+                                    placeholder="Phone Number (Optional)"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    className="form-input"
                                     disabled={status === 'submitting'}
                                 />
                                 <button type="submit" className="btn-primary submit-btn" disabled={status === 'submitting'}>
@@ -76,21 +86,19 @@ const WaitlistForm = () => {
                 }
                 .waitlist-form {
                     width: 100%;
+                    max-width: 400px;
+                    margin: 0 auto;
                 }
                 .input-group {
                     display: flex;
+                    flex-direction: column;
                     gap: 12px;
                     margin-bottom: 16px;
                 }
-                @media (max-width: 600px) {
-                    .input-group {
-                        flex-direction: column;
-                    }
-                }
-                .email-input {
-                    flex: 1;
+                .form-input {
+                    width: 100%;
                     padding: 14px 20px;
-                    border-radius: 9999px;
+                    border-radius: 12px;
                     border: 1px solid rgba(255, 255, 255, 0.2);
                     background: rgba(255, 255, 255, 0.05);
                     color: white;
@@ -99,16 +107,20 @@ const WaitlistForm = () => {
                     outline: none;
                     transition: all 0.2s;
                 }
-                .email-input:focus {
+                .form-input:focus {
                     border-color: var(--color-primary);
                     background: rgba(255, 255, 255, 0.1);
                 }
                 .submit-btn {
+                    width: 100%;
                     padding: 14px 32px;
+                    border-radius: 12px;
+                    margin-top: 8px;
                 }
                 .spam-notice {
                     font-size: 0.875rem;
                     color: rgba(255, 255, 255, 0.4);
+                    margin-top: 16px;
                 }
                 .success-message {
                     animation: fadeIn 0.5s ease;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -15,6 +16,9 @@ const Hero = () => {
                 <button className="btn-primary" onClick={() => document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })}>
                     Join the Movement
                 </button>
+                <Link to="/learn-more" className="btn-secondary">
+                    Learn More
+                </Link>
             </div>
 
             <style>{`
@@ -67,6 +71,14 @@ const Hero = () => {
                     color: rgba(255, 255, 255, 0.8);
                     max-width: 700px;
                     margin: 0 auto 40px;
+                }
+                @media (max-width: 600px) {
+                    .btn-secondary {
+                        margin-left: 0;
+                        margin-top: 16px;
+                        display: block;
+                        width: 100%;
+                    }
                 }
             `}</style>
         </section>

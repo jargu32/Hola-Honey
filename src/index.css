@@ -1,9 +1,14 @@
 :root {
-  --color-bg: #1c1917; /* Warm dark background */
-  --color-text: #fef3c7; /* Light creamy text */
-  --color-primary: #f59e0b; /* Amber 500 */
-  --color-primary-dark: #d97706; /* Amber 600 */
-  --color-accent: #78350f; /* Amber 900 for depth */
+  --color-bg: #1c1917;
+  /* Warm dark background */
+  --color-text: #fef3c7;
+  /* Light creamy text */
+  --color-primary: #f59e0b;
+  /* Amber 500 */
+  --color-primary-dark: #d97706;
+  /* Amber 600 */
+  --color-accent: #78350f;
+  /* Amber 900 for depth */
   --color-glass: rgba(255, 255, 255, 0.05);
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -24,7 +29,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   line-height: 1.2;
 }
@@ -44,6 +52,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
+  display: inline-block;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: #fff;
   padding: 12px 32px;
@@ -55,11 +64,34 @@ h1, h2, h3, h4 {
   font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  /* Remove underline from links */
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 16px;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
 }
 
 .container {
