@@ -5,17 +5,38 @@ const WaitlistForm = () => {
     const [phone, setPhone] = useState('');
     const [status, setStatus] = useState('idle'); // idle, submitting, success
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
 
-        // Simulate API call
-        setTimeout(() => {
-            console.log(`Waitlist submission: ${email}, Phone: ${phone}`);
+        try {
+            const response = await fetch('/api/waitlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    phone,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                alert(result.error || 'Something went wrong. Please try again.');
+                setStatus('idle');
+                return;
+            }
+
             setStatus('success');
             setEmail('');
             setPhone('');
-        }, 1500);
+        } catch (error) {
+            console.error('Waitlist error:', error);
+            alert('Something went wrong. Please try again.');
+            setStatus('idle');
+        }
     };
 
     return (
