@@ -35,8 +35,8 @@ const MoreThanHoney = () => {
 
                     <div className="more-image-wrapper glass-panel">
                         <img 
-                            src="/images/la virtud bees4.png" 
-                            alt="Beehives on mountainside in Honduras" 
+                            src="/images/holahoneypics/IMG_9150.jpeg" 
+                            alt="Beehives situated on mountainside in Honduras" 
                             className="more-img" 
                         />
                         <div className="more-image-caption">

@@ -39,8 +39,8 @@ const MissionImpact = () => {
                 <div className="beekeepers-banner glass-panel">
                     <div className="banner-image-wrapper">
                         <img 
-                            src="/images/la virtud bees3.png" 
-                            alt="Beekeepers carrying hives in La Virtud, Honduras" 
+                            src="/images/holahoneypics/IMG_8818.jpeg" 
+                            alt="Sunlight filtering through the Honduran trees near the apiary" 
                             className="banner-img" 
                         />
                         <div className="banner-overlay"></div>

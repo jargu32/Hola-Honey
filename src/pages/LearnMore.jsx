@@ -37,7 +37,7 @@ const LearnMore = () => {
                     {/* Section 2: Beekeeping & Declining Livelihoods */}
                     <section className="detail-section reverse">
                         <div className="detail-image-wrapper">
-                            <img src="/images/beekeepers.jpg" alt="Beekeepers working" className="detail-image" />
+                            <img src="/images/holahoneypics/IMG_9151.jpeg" alt="Honduran beekeepers managing hives in Lempira" className="detail-image" />
                         </div>
                         <div className="detail-content">
                             <h2>Supporting Honduran Beekeepers</h2>
