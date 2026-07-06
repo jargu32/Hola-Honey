@@ -6,6 +6,7 @@ import ProductShowcase from '../components/ProductShowcase';
 import OurStory from '../components/OurStory';
 import MissionImpact from '../components/MissionImpact';
 import MoreThanHoney from '../components/MoreThanHoney';
+import Gallery from '../components/Gallery';
 import WaitlistForm from '../components/WaitlistForm';
 import Footer from '../components/Footer';
 
@@ -37,6 +38,7 @@ const Home = () => {
             <OurStory />
             <MissionImpact />
             <MoreThanHoney />
+            <Gallery />
             <WaitlistForm />
             <Footer />
         </main>

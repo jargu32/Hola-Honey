@@ -55,6 +55,7 @@ const Navbar = () => {
                         <li><a href="#story" onClick={(e) => handleNavClick(e, '#story')}>Our Story</a></li>
                         <li><a href="#mission" onClick={(e) => handleNavClick(e, '#mission')}>Mission & Impact</a></li>
                         <li><a href="#more-than-honey" onClick={(e) => handleNavClick(e, '#more-than-honey')}>More Than Honey</a></li>
+                        <li><a href="#gallery" onClick={(e) => handleNavClick(e, '#gallery')}>Gallery</a></li>
                         <li className="mobile-only">
                             <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
                                 Join Waitlist
@@ -111,12 +112,12 @@ const Navbar = () => {
                 .nav-logo {
                     display: flex;
                     align-items: center;
-                    height: 45px;
+                    height: 60px;
                     z-index: 1001;
                 }
                 .logo-img {
                     height: 100%;
-                    max-height: 45px;
+                    max-height: 60px;
                     object-fit: contain;
                     mix-blend-mode: screen; /* Make black background transparent, keep gold text */
                     transition: var(--transition);
