@@ -21,7 +21,7 @@ const LearnMore = () => {
                     {/* Section 1: Ownership */}
                     <section className="detail-section">
                         <div className="detail-image-wrapper">
-                            <img src="/images/Grandmahoney.jpg" alt="Grandma inspecting honeycomb" className="detail-image" />
+                            <img src="/images/holahoneypics/IMG_9158.jpeg" alt="Scenic overlook of La Virtud, Honduras" className="detail-image" />
                         </div>
                         <div className="detail-content">
                             <h2>Why Ownership Matters</h2>

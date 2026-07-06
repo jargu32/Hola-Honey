@@ -8,8 +8,8 @@ const OurStory = () => {
                 <div className="story-grid">
                     <div className="story-image-container glass-panel">
                         <img 
-                            src="/images/Grandmahoney.jpg" 
-                            alt="Abuela inspecting fresh honeycomb" 
+                            src="/images/holahoneypics/IMG_9158.jpeg" 
+                            alt="Overlook of the mountains in La Virtud, Lempira, Honduras" 
                             className="story-img-main" 
                         />
                         <div className="story-image-overlay">
