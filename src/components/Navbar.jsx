@@ -69,7 +69,6 @@ const Navbar = () => {
 
                 <div className="nav-actions">
                     <div className="translate-selector-wrapper">
-                        <img src="/images/holahoneypics/new_translate_icon.png" alt="Translate" className="translate-icon" />
                         <div className="language-toggle">
                             <button 
                                 className={`lang-btn ${language === 'en' ? 'active' : ''}`} 
@@ -282,17 +281,6 @@ const Navbar = () => {
                 .translate-selector-wrapper {
                     display: flex;
                     align-items: center;
-                    gap: 10px;
-                }
-                .translate-icon {
-                    height: 34px;
-                    width: auto;
-                    object-fit: contain;
-                    transition: var(--transition);
-                    border-radius: 6px;
-                }
-                .translate-selector-wrapper:hover .translate-icon {
-                    transform: scale(1.05);
                 }
                 .language-toggle {
                     display: flex;
