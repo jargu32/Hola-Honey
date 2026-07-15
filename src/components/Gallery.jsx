@@ -7,19 +7,12 @@ const Gallery = () => {
         { src: '/images/holahoneypics/IMG_8892.jpeg', alt: 'Beekeeper inspecting healthy brood frame' },
         { src: '/images/holahoneypics/IMG_8894.jpeg', alt: 'Freshly harvested honey jars in the sunlight' },
         { src: '/images/holahoneypics/IMG_8899.jpeg', alt: 'Wild honeybees active on honeycomb' },
-        { src: '/images/holahoneypics/IMG_9150.jpeg', alt: 'Beekeeping boxes on the mountainside' },
-        { src: '/images/holahoneypics/IMG_9151.jpeg', alt: 'Beekeepers managing rural hives' },
         { src: '/images/holahoneypics/IMG_9152.jpeg', alt: 'Close-up of golden honey harvest' },
-        { src: '/images/holahoneypics/IMG_9153.jpeg', alt: 'Beautiful floral source in Honduras' },
-        { src: '/images/holahoneypics/IMG_9154.jpeg', alt: 'Hives situated in lush foliage' },
-        { src: '/images/holahoneypics/IMG_9155.jpeg', alt: 'Inspecting beekeeping equipment' },
         { src: '/images/holahoneypics/IMG_9156.jpeg', alt: 'Working with smoke to calm the bees' },
         { src: '/images/holahoneypics/IMG_9158.jpeg', alt: 'Mountain overlook of La Virtud' },
-        { src: '/images/holahoneypics/IMG_9159.jpeg', alt: 'Traditional beekeeping methods' },
         { src: '/images/holahoneypics/IMG_9160.jpeg', alt: 'Healthy colony of honeybees' },
         { src: '/images/holahoneypics/IMG_9161.jpeg', alt: 'Raw honeycomb textures' },
-        { src: '/images/holahoneypics/IMG_9162.jpeg', alt: 'Beekeeping harvest day' },
-        { src: '/images/holahoneypics/IMG_9163.jpeg', alt: 'Pouring fresh golden honey' }
+        { src: '/images/holahoneypics/IMG_9162.jpeg', alt: 'Beekeeping harvest day' }
     ];
 
     const [visibleCount, setVisibleCount] = useState(6);
