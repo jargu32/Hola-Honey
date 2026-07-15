@@ -55,7 +55,6 @@ const Navbar = () => {
                         <li><a href="#story" onClick={(e) => handleNavClick(e, '#story')}>Our Story</a></li>
                         <li><a href="#mission" onClick={(e) => handleNavClick(e, '#mission')}>Mission & Impact</a></li>
                         <li><a href="#more-than-honey" onClick={(e) => handleNavClick(e, '#more-than-honey')}>More Than Honey</a></li>
-                        <li><a href="#gallery" onClick={(e) => handleNavClick(e, '#gallery')}>Gallery</a></li>
                         <li className="mobile-only">
                             <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
                                 Join Waitlist
@@ -112,18 +111,26 @@ const Navbar = () => {
                 .nav-logo {
                     display: flex;
                     align-items: center;
-                    height: 60px;
+                    height: 52px;
                     z-index: 1001;
+                    border: 1px solid rgba(253, 251, 247, 0.75); /* Thin white/cream border */
+                    border-radius: 6px;
+                    padding: 4px 12px;
+                    background: #12100e; /* Match main dark background */
+                    transition: var(--transition);
+                }
+                .nav-logo:hover {
+                    border-color: var(--color-primary);
+                    box-shadow: 0 0 10px rgba(217, 119, 6, 0.2);
                 }
                 .logo-img {
                     height: 100%;
-                    max-height: 60px;
+                    max-height: 44px;
                     object-fit: contain;
-                    mix-blend-mode: screen; /* Make black background transparent, keep gold text */
                     transition: var(--transition);
                 }
                 .logo-img:hover {
-                    filter: brightness(1.2) drop-shadow(0 0 4px rgba(217, 119, 6, 0.4));
+                    filter: brightness(1.2);
                 }
                 .nav-menu {
                     transition: var(--transition);
@@ -136,6 +143,7 @@ const Navbar = () => {
                     display: flex;
                     align-items: center;
                     gap: 32px;
+                    white-space: nowrap; /* Prevent items from wrapping */
                 }
                 .nav-list li a {
                     font-family: var(--font-body);
@@ -144,6 +152,7 @@ const Navbar = () => {
                     color: rgba(253, 251, 247, 0.8);
                     transition: var(--transition);
                     position: relative;
+                    white-space: nowrap; /* Prevent link text from wrapping */
                 }
                 .nav-list li a:not(.nav-cta):hover {
                     color: var(--color-accent);
