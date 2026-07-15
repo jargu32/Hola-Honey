@@ -27,7 +27,7 @@ const Navbar = () => {
                 includedLanguages: 'en,es',
                 layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
-            }, 'google_translate_element_inner');
+            }, 'google_translate_element');
         };
 
         if (!document.getElementById('google-translate-script')) {
@@ -83,8 +83,8 @@ const Navbar = () => {
 
                 <div className="nav-actions">
                     <div className="translate-selector-wrapper">
-                        <img src="/images/holahoneypics/translate_symbols.png" alt="Translate" className="translate-icon" />
-                        <div id="google_translate_element_inner"></div>
+                        <img src="/images/holahoneypics/new_translate_icon.png" alt="Translate" className="translate-icon" />
+                        <div id="google_translate_element"></div>
                     </div>
                     <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
                         Join Waitlist
@@ -282,13 +282,14 @@ const Navbar = () => {
                 .translate-selector-wrapper {
                     display: flex;
                     align-items: center;
-                    gap: 8px;
+                    gap: 10px;
                 }
                 .translate-icon {
-                    height: 24px;
+                    height: 34px;
                     width: auto;
                     object-fit: contain;
                     transition: var(--transition);
+                    border-radius: 6px;
                 }
                 .translate-selector-wrapper:hover .translate-icon {
                     transform: scale(1.05);
