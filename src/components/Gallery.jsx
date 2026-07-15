@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const Gallery = () => {
+    const { language } = useLanguage();
+    const t = translations[language].gallery;
+
     const images = [
-        { src: '/images/holahoneypics/IMG_8890.jpeg', alt: 'Pure honey dripping from honeycomb' },
-        { src: '/images/holahoneypics/IMG_8818.jpeg', alt: 'Sunlight filtering through Honduran apiary' },
-        { src: '/images/holahoneypics/IMG_8892.jpeg', alt: 'Beekeeper inspecting healthy brood frame' },
-        { src: '/images/holahoneypics/IMG_8894.jpeg', alt: 'Freshly harvested honey jars in the sunlight' },
-        { src: '/images/holahoneypics/IMG_8899.jpeg', alt: 'Wild honeybees active on honeycomb' },
-        { src: '/images/holahoneypics/IMG_9152.jpeg', alt: 'Close-up of golden honey harvest' },
-        { src: '/images/holahoneypics/IMG_9156.jpeg', alt: 'Working with smoke to calm the bees' },
-        { src: '/images/holahoneypics/IMG_9158.jpeg', alt: 'Mountain overlook of La Virtud' },
-        { src: '/images/holahoneypics/IMG_9160.jpeg', alt: 'Healthy colony of honeybees' },
-        { src: '/images/holahoneypics/IMG_9161.jpeg', alt: 'Raw honeycomb textures' },
-        { src: '/images/holahoneypics/IMG_9162.jpeg', alt: 'Beekeeping harvest day' }
+        { src: '/images/holahoneypics/IMG_8890.jpeg', altEn: 'Pure honey dripping from honeycomb', altEs: 'Miel pura goteando de un panal' },
+        { src: '/images/holahoneypics/IMG_8818.jpeg', altEn: 'Sunlight filtering through Honduran apiary', altEs: 'Luz solar filtrándose en el apiario hondureño' },
+        { src: '/images/holahoneypics/IMG_8892.jpeg', altEn: 'Beekeeper inspecting healthy brood frame', altEs: 'Apicultor inspeccionando un bastidor de cría saludable' },
+        { src: '/images/holahoneypics/IMG_8894.jpeg', altEn: 'Freshly harvested honey jars in the sunlight', altEs: 'Frascos de miel recién cosechada bajo la luz del sol' },
+        { src: '/images/holahoneypics/IMG_8899.jpeg', altEn: 'Wild honeybees active on honeycomb', altEs: 'Abejas melíferas silvestres activas en el panal' },
+        { src: '/images/holahoneypics/IMG_9152.jpeg', altEn: 'Close-up of golden honey harvest', altEs: 'Primer plano de la cosecha de miel dorada' },
+        { src: '/images/holahoneypics/IMG_9156.jpeg', altEn: 'Working with smoke to calm the bees', altEs: 'Trabajando con humo para calmar a las abejas' },
+        { src: '/images/holahoneypics/IMG_9158.jpeg', altEn: 'Mountain overlook of La Virtud', altEs: 'Vista de las montañas de La Virtud' },
+        { src: '/images/holahoneypics/IMG_9160.jpeg', altEn: 'Healthy colony of honeybees', altEs: 'Colonia saludable de abejas melíferas' },
+        { src: '/images/holahoneypics/IMG_9161.jpeg', altEn: 'Raw honeycomb textures', altEs: 'Texturas de panal de miel cruda' },
+        { src: '/images/holahoneypics/IMG_9162.jpeg', altEn: 'Beekeeping harvest day', altEs: 'Día de cosecha de apicultura' }
     ];
 
     const [visibleCount, setVisibleCount] = useState(6);
@@ -44,13 +49,17 @@ const Gallery = () => {
         setLightboxIndex((prev) => (prev - 1 + images.length) % images.length);
     };
 
+    const getAltText = (img) => {
+        return language === 'es' ? img.altEs : img.altEn;
+    };
+
     return (
         <section id="gallery" className="gallery-section">
             <div className="container">
                 <div className="section-header">
-                    <span className="section-label">Behind the Jars</span>
-                    <h2>Life at the <span className="text-gradient">Apiaries</span></h2>
-                    <p>Raw, unfiltered glimpses of our work, beekeepers, hives, and the beautiful landscapes of La Virtud, Honduras.</p>
+                    <span className="section-label">{t.label}</span>
+                    <h2>{t.title1}<span className="text-gradient">{t.titleHighlight}</span></h2>
+                    <p>{t.desc}</p>
                 </div>
 
                 <div className="gallery-grid">
@@ -63,13 +72,13 @@ const Gallery = () => {
                             <div className="gallery-img-wrapper">
                                 <img 
                                     src={img.src} 
-                                    alt={img.alt} 
+                                    alt={getAltText(img)} 
                                     className="gallery-img" 
                                     loading="lazy"
                                 />
                                 <div className="gallery-hover-overlay">
                                     <span className="zoom-icon">🔍</span>
-                                    <p className="gallery-caption">{img.alt}</p>
+                                    <p className="gallery-caption">{getAltText(img)}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,11 +88,11 @@ const Gallery = () => {
                 <div className="gallery-actions">
                     {visibleCount < images.length ? (
                         <button className="btn-primary" onClick={handleLoadMore}>
-                            Load More Photos
+                            {t.loadMore}
                         </button>
                     ) : (
                         <button className="btn-secondary" onClick={handleShowLess}>
-                            Show Less
+                            {t.showLess}
                         </button>
                     )}
                 </div>
@@ -99,11 +108,11 @@ const Gallery = () => {
                     <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
                         <img 
                             src={images[lightboxIndex].src} 
-                            alt={images[lightboxIndex].alt} 
+                            alt={getAltText(images[lightboxIndex])} 
                             className="lightbox-img" 
                         />
                         <div className="lightbox-caption-bar">
-                            <p>{images[lightboxIndex].alt}</p>
+                            <p>{getAltText(images[lightboxIndex])}</p>
                             <span>{lightboxIndex + 1} / {images.length}</span>
                         </div>
                     </div>

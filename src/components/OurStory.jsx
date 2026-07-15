@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const OurStory = () => {
+    const { language } = useLanguage();
+    const t = translations[language].story;
+
     return (
         <section id="story" className="story-section-home">
             <div className="container">
@@ -9,35 +14,35 @@ const OurStory = () => {
                     <div className="story-image-container glass-panel">
                         <img 
                             src="/images/holahoneypics/IMG_9158.jpeg" 
-                            alt="Overlook of the mountains in La Virtud, Lempira, Honduras" 
+                            alt={t.location} 
                             className="story-img-main" 
                         />
                         <div className="story-image-overlay">
-                            <span className="location-tag">La Virtud, Lempira, Honduras</span>
+                            <span className="location-tag">{t.location}</span>
                         </div>
                     </div>
                     <div className="story-text-container">
-                        <span className="section-label">Our Story</span>
+                        <span className="section-label">{t.label}</span>
                         <h2 className="story-headline">
-                            Rooted in Heritage, <br />
-                            <span className="text-gradient">Defined by Ownership</span>
+                            {t.title1}<br />
+                            <span className="text-gradient">{t.titleHighlight}</span>
                         </h2>
                         
                         <div className="story-paragraphs">
                             <p>
-                                Many products use culture as part of their image, but the ownership and profits do not always stay connected to the communities being represented. Cultural icons are celebrated while wealth moves elsewhere.
+                                {t.paragraph1}
                             </p>
                             <p>
-                                <strong>Hola Honey</strong> was created to do things differently. Born from our family roots in La Virtud, Lempira, we are building a Latino-owned honey brand rooted in Honduras—one where the people, land, and stories behind the product are part of the ownership, not just the branding.
+                                {t.paragraph2}
                             </p>
                             <p className="story-highlight">
-                                We believe representation without ownership is just mascot marketing. True empowerment starts when the communities that do the work also own the rewards.
+                                {t.highlight}
                             </p>
                         </div>
 
                         <div className="story-actions">
                             <Link to="/learn-more" className="btn-secondary">
-                                Read Full Story
+                                {t.cta}
                             </Link>
                         </div>
                     </div>

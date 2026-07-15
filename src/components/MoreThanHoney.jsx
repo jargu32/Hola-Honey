@@ -1,30 +1,35 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const MoreThanHoney = () => {
+    const { language } = useLanguage();
+    const t = translations[language].more;
+
     return (
         <section id="more-than-honey" className="more-than-honey-section">
             <div className="container">
                 <div className="more-grid">
                     <div className="more-content">
-                        <span className="section-label">More Than Honey</span>
+                        <span className="section-label">{t.label}</span>
                         <h2 className="more-headline">
-                            Regenerating the Land & <br />
-                            <span className="text-gradient">Protecting Pollinators</span>
+                            {t.title1}<br />
+                            <span className="text-gradient">{t.titleHighlight}</span>
                         </h2>
                         
                         <div className="more-paragraphs">
                             <p>
-                                Providing consistent and dignified incomes for Honduran beekeepers is just one part of our vision. A healthy hive requires a thriving, biodiverse environment.
+                                {t.desc1}
                             </p>
                             <p>
-                                We are committed to an active reforestation campaign in Lempira, planting nectar-producing trees and pollinator-friendly flora. This initiative helps restore native forests, secures forage for the bees, and strengthens local agricultural ecosystems.
+                                {t.desc2}
                             </p>
                         </div>
 
                         <div className="milestone-box glass-panel">
-                            <h4>Follow the Hive Campaign</h4>
+                            <h4>{t.campaignTitle}</h4>
                             <p>
-                                For every social media milestone we hit, we will fund new trees and pollinator-friendly plants in Honduras. Join our community to watch our impact grow in real-time.
+                                {t.campaignDesc}
                             </p>
                             <div className="social-tags-list">
                                 <span className="social-pill">Instagram: @holahoney3</span>
@@ -36,11 +41,11 @@ const MoreThanHoney = () => {
                     <div className="more-image-wrapper glass-panel">
                         <img 
                             src="/images/holahoneypics/IMG_9150.jpeg" 
-                            alt="Beehives situated on mountainside in Honduras" 
+                            alt={t.caption} 
                             className="more-img" 
                         />
                         <div className="more-image-caption">
-                            <span>Our apiaries nestled on Lempira's mountainsides</span>
+                            <span>{t.caption}</span>
                         </div>
                     </div>
                 </div>

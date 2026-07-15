@@ -2,8 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const LearnMore = () => {
+    const { language } = useLanguage();
+    const t = translations[language].learn;
+
     return (
         <main className="learn-more-page" style={{ paddingTop: '90px' }}>
             <Navbar />
@@ -13,23 +18,23 @@ const LearnMore = () => {
                     
                     {/* Header */}
                     <div className="page-header">
-                        <span className="section-label">Deep Dive</span>
-                        <h1 className="page-title">Ownership & <span className="text-gradient">Impact</span></h1>
-                        <p className="page-subtitle">A detailed look at why Hola Honey exists and the mission behind our jars.</p>
+                        <span className="section-label">{t.label}</span>
+                        <h1 className="page-title">{t.title1}<span className="text-gradient">{t.titleHighlight}</span></h1>
+                        <p className="page-subtitle">{t.subtitle}</p>
                     </div>
 
                     {/* Section 1: Ownership */}
                     <section className="detail-section">
                         <div className="detail-image-wrapper">
-                            <img src="/images/holahoneypics/IMG_9158.jpeg" alt="Scenic overlook of La Virtud, Honduras" className="detail-image" />
+                            <img src="/images/holahoneypics/IMG_9158.jpeg" alt={t.section1Title} className="detail-image" />
                         </div>
                         <div className="detail-content">
-                            <h2>Why Ownership Matters</h2>
+                            <h2>{t.section1Title}</h2>
                             <p>
-                                Many products use culture as part of their image, but the ownership and profits do not always stay connected to the communities being represented. Historically, culture becomes a marketing mascot while the actual wealth and ownership flow elsewhere.
+                                {t.section1P1}
                             </p>
                             <p>
-                                Hola Honey was created to do things differently. We are building a Latino-owned honey brand rooted in Honduras—one where the people, land, and stories behind the product are part of the ownership, not just the branding.
+                                {t.section1P2}
                             </p>
                         </div>
                     </section>
@@ -37,18 +42,18 @@ const LearnMore = () => {
                     {/* Section 2: Beekeeping & Declining Livelihoods */}
                     <section className="detail-section reverse">
                         <div className="detail-image-wrapper">
-                            <img src="/images/holahoneypics/worker.jpg" alt="Honduran beekeepers working at the apiary" className="detail-image contain-fit" />
+                            <img src="/images/holahoneypics/worker.jpg" alt={t.section2Title} className="detail-image contain-fit" />
                         </div>
                         <div className="detail-content">
-                            <h2>Supporting Honduran Beekeepers</h2>
+                            <h2>{t.section2Title}</h2>
                             <p>
-                                Beekeeping in Honduras is declining. Many small-scale beekeepers struggle to earn a sustainable, predictable income, forcing families to abandon their hives in search of seasonal or informal work elsewhere.
+                                {t.section2P1}
                             </p>
                             <p>
-                                When beekeeping disappears, more than livelihoods are lost. Bees are essential pollinators that support local forests, crops, and biodiversity. Fewer bees mean reduced pollination, weaker ecosystems, and long-term impacts on the local environment.
+                                {t.section2P2}
                             </p>
                             <p>
-                                We partner directly with small-scale beekeepers and pay fair, livable wages that make beekeeping a viable, dignified livelihood. By ensuring sustainable compensation, we help keep hives active, support rural families, and protect the pollinators our ecosystems depend on.
+                                {t.section2P3}
                             </p>
                         </div>
                     </section>
@@ -56,25 +61,25 @@ const LearnMore = () => {
                     {/* Section 3: Poverty context & US Market opportunity */}
                     <section className="detail-section">
                         <div className="detail-image-wrapper">
-                            <img src="/images/beehives.jpg" alt="Beehives in La Virtud" className="detail-image" />
+                            <img src="/images/beehives.jpg" alt={t.section3Title} className="detail-image" />
                         </div>
                         <div className="detail-content">
-                            <h2>Why This Matters Globally</h2>
+                            <h2>{t.section3Title}</h2>
                             <p>
-                                Nearly half of Hondurans are estimated to live below the $8.30-per-day poverty line, adjusted for purchasing power. Hola Honey exists to help change that trajectory by creating steady, stable demand for Honduran honey.
+                                {t.section3P1}
                             </p>
                             <p>
-                                At the same time, the U.S. is the largest honey consumer in the world, importing 562 million pounds in 2024 (roughly 74% of total supply). The demand is there, but the transparency is not.
+                                {t.section3P2}
                             </p>
                             <p>
-                                We believe imported honey should do more than fill shelves—it should support the people and communities behind it. When you choose Hola Honey, you help sustain beekeeping traditions, support rural families, and protect the environment.
+                                {t.section3P3}
                             </p>
                         </div>
                     </section>
 
                     <div className="actions">
-                        <Link to="/#waitlist" className="btn-primary">Join the Waitlist</Link>
-                        <Link to="/" className="btn-secondary">Back to Home</Link>
+                        <Link to="/#waitlist" className="btn-primary">{t.btnWaitlist}</Link>
+                        <Link to="/" className="btn-secondary">{t.btnHome}</Link>
                     </div>
                 </div>
             </div>

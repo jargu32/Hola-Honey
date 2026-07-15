@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const { language, toggleLanguage } = useLanguage();
+    const t = translations[language].navbar;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,24 +22,6 @@ const Navbar = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    useEffect(() => {
-        window.googleTranslateElementInit = () => {
-            new window.google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,es',
-                layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        };
-
-        if (!document.getElementById('google-translate-script')) {
-            const addScript = document.createElement('script');
-            addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
-            addScript.setAttribute('id', 'google-translate-script');
-            document.body.appendChild(addScript);
-        }
     }, []);
 
     const handleNavClick = (e, targetId) => {
@@ -68,14 +54,14 @@ const Navbar = () => {
 
                 <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
                     <ul className="nav-list">
-                        <li><a href="#top" onClick={(e) => handleNavClick(e, '#top')}>Home</a></li>
-                        <li><a href="#honey" onClick={(e) => handleNavClick(e, '#honey')}>Our Honey</a></li>
-                        <li><a href="#story" onClick={(e) => handleNavClick(e, '#story')}>Our Story</a></li>
-                        <li><a href="#mission" onClick={(e) => handleNavClick(e, '#mission')}>Mission & Impact</a></li>
-                        <li><a href="#more-than-honey" onClick={(e) => handleNavClick(e, '#more-than-honey')}>More Than Honey</a></li>
+                        <li><a href="#top" onClick={(e) => handleNavClick(e, '#top')}>{t.home}</a></li>
+                        <li><a href="#honey" onClick={(e) => handleNavClick(e, '#honey')}>{t.honey}</a></li>
+                        <li><a href="#story" onClick={(e) => handleNavClick(e, '#story')}>{t.story}</a></li>
+                        <li><a href="#mission" onClick={(e) => handleNavClick(e, '#mission')}>{t.mission}</a></li>
+                        <li><a href="#more-than-honey" onClick={(e) => handleNavClick(e, '#more-than-honey')}>{t.more}</a></li>
                         <li className="mobile-only">
                             <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
-                                Join Waitlist
+                                {t.waitlist}
                             </a>
                         </li>
                     </ul>
@@ -84,10 +70,24 @@ const Navbar = () => {
                 <div className="nav-actions">
                     <div className="translate-selector-wrapper">
                         <img src="/images/holahoneypics/new_translate_icon.png" alt="Translate" className="translate-icon" />
-                        <div id="google_translate_element"></div>
+                        <div className="language-toggle">
+                            <button 
+                                className={`lang-btn ${language === 'en' ? 'active' : ''}`} 
+                                onClick={() => toggleLanguage('en')}
+                            >
+                                EN
+                            </button>
+                            <span className="lang-separator">|</span>
+                            <button 
+                                className={`lang-btn ${language === 'es' ? 'active' : ''}`} 
+                                onClick={() => toggleLanguage('es')}
+                            >
+                                ES
+                            </button>
+                        </div>
                     </div>
                     <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
-                        Join Waitlist
+                        {t.waitlist}
                     </a>
                     <button 
                         className={`hamburger ${isOpen ? 'active' : ''}`} 
@@ -278,7 +278,7 @@ const Navbar = () => {
                     }
                 }
 
-                /* Google Translate Custom styling */
+                /* Google Translate Custom styling replaced with native EN/ES toggle */
                 .translate-selector-wrapper {
                     display: flex;
                     align-items: center;
@@ -294,54 +294,38 @@ const Navbar = () => {
                 .translate-selector-wrapper:hover .translate-icon {
                     transform: scale(1.05);
                 }
-                .goog-te-gadget {
-                    font-size: 0 !important;
-                    color: transparent !important;
+                .language-toggle {
+                    display: flex;
+                    align-items: center;
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid var(--color-glass-border);
+                    padding: 4px 10px;
+                    border-radius: 8px;
+                    height: 36px;
                 }
-                .goog-te-gadget-icon,
-                .goog-te-gadget img {
-                    display: none !important;
+                .lang-btn {
+                    background: none;
+                    border: none;
+                    color: rgba(253, 251, 247, 0.45);
+                    font-family: var(--font-body);
+                    font-weight: 600;
+                    font-size: 0.825rem;
+                    cursor: pointer;
+                    padding: 2px 4px;
+                    transition: var(--transition);
+                    outline: none;
                 }
-                .goog-te-gadget .goog-logo-link {
-                    display: none !important;
+                .lang-btn.active {
+                    color: var(--color-primary);
                 }
-                .goog-te-gadget span {
-                    display: none !important;
+                .lang-btn:hover {
+                    color: var(--color-text);
                 }
-                .goog-te-combo {
-                    background: rgba(255, 255, 255, 0.02) !important;
-                    border: 1px solid var(--color-glass-border) !important;
-                    color: rgba(253, 251, 247, 0.85) !important;
-                    padding: 6px 10px !important;
-                    border-radius: 8px !important;
-                    font-family: var(--font-body) !important;
-                    font-size: 0.825rem !important;
-                    font-weight: 500 !important;
-                    cursor: pointer !important;
-                    outline: none !important;
-                    transition: var(--transition) !important;
-                }
-                .goog-te-combo:hover {
-                    border-color: var(--color-primary) !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    color: var(--color-text) !important;
-                }
-                /* Hide Google Translate top bar frame */
-                iframe.goog-te-banner-frame {
-                    display: none !important;
-                }
-                body {
-                    top: 0px !important;
-                }
-                .goog-te-balloon-frame {
-                    display: none !important;
-                }
-                #goog-gt-tt {
-                    display: none !important;
-                }
-                .goog-text-highlight {
-                    background: transparent !important;
-                    box-shadow: none !important;
+                .lang-separator {
+                    color: rgba(253, 251, 247, 0.15);
+                    font-size: 0.8rem;
+                    margin: 0 4px;
+                    user-select: none;
                 }
             `}</style>
         </header>

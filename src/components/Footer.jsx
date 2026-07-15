@@ -1,17 +1,22 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const Footer = () => {
+    const { language } = useLanguage();
+    const t = translations[language].footer;
+
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-grid">
                     <div className="footer-brand">
                         <img src="/images/blackwordlogo.png" alt="Hola Honey" className="footer-logo" />
-                        <p className="footer-tagline">Follow our journey from hive to jar.</p>
+                        <p className="footer-tagline">{t.tagline}</p>
                     </div>
 
                     <div className="footer-links">
-                        <h4 className="footer-title">Connect</h4>
+                        <h4 className="footer-title">{t.connect}</h4>
                         <ul className="footer-list">
                             <li>
                                 <a href="https://instagram.com/holahoney3" target="_blank" rel="noopener noreferrer">
@@ -32,15 +37,15 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-artist-box glass-panel">
-                        <h4>Artist Wanted</h4>
+                        <h4>{t.artistTitle}</h4>
                         <p>
-                            We are looking for a talented artist to help illustrate the next chapter of Hola Honey. Contact us if interested!
+                            {t.artistDesc}
                         </p>
                     </div>
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Hola Honey LLC. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Hola Honey LLC. {t.rights}</p>
                 </div>
             </div>
 

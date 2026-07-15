@@ -1,6 +1,11 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const ProductShowcase = () => {
+    const { language } = useLanguage();
+    const t = translations[language].showcase;
+
     return (
         <section id="honey" className="showcase">
             <div className="container">
@@ -9,10 +14,10 @@ const ProductShowcase = () => {
                         <img src="/images/blurjar.png" alt="Hola Honey Luxury Jar" className="feature-image" />
                     </div>
                     <div className="feature-content">
-                        <span className="section-label">Our Honey</span>
-                        <h2 className="feature-title">Pure, Raw, & <br /><span className="text-gradient">Authentic</span></h2>
+                        <span className="section-label">{t.label}</span>
+                        <h2 className="feature-title">{t.title1}<br /><span className="text-gradient">{t.titleHighlight}</span></h2>
                         <p className="feature-text">
-                            Our honey comes from small, carefully managed apiaries in Honduras and is never heated. It is minimally filtered and bottled straight from the hive to preserve the natural character, complex floral aroma, and beneficial compounds created by the bees and the land they forage.
+                            {t.description}
                         </p>
                         <ul className="feature-list">
                             <li>
@@ -20,8 +25,8 @@ const ProductShowcase = () => {
                                     <img src="/images/holahoneypics/raw_unfiltered.png" alt="100% Raw & Unfiltered Icon" className="feature-icon-img" />
                                 </div>
                                 <div>
-                                    <strong>100% Raw & Unfiltered</strong>
-                                    <p>Retains all natural pollen, enzymes, and beneficial properties.</p>
+                                    <strong>{t.rawTitle}</strong>
+                                    <p>{t.rawDesc}</p>
                                 </div>
                             </li>
                             <li>
@@ -29,8 +34,8 @@ const ProductShowcase = () => {
                                     <img src="/images/holahoneypics/never_heated.png" alt="Never Heated Icon" className="feature-icon-img" />
                                 </div>
                                 <div>
-                                    <strong>Never Heated</strong>
-                                    <p>Cold-handled to protect the delicate honey flavors and active nutrients.</p>
+                                    <strong>{t.heatTitle}</strong>
+                                    <p>{t.heatDesc}</p>
                                 </div>
                             </li>
                             <li>
@@ -38,8 +43,8 @@ const ProductShowcase = () => {
                                     <img src="/images/holahoneypics/supports_families.png" alt="Supports Rural Beekeeping Families Icon" className="feature-icon-img" />
                                 </div>
                                 <div>
-                                    <strong>Supports Rural Beekeeping Families</strong>
-                                    <p>Directly contributes to consistent, dignified incomes in Honduran communities.</p>
+                                    <strong>{t.familyTitle}</strong>
+                                    <p>{t.familyDesc}</p>
                                 </div>
                             </li>
                         </ul>

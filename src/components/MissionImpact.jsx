@@ -1,36 +1,41 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const MissionImpact = () => {
+    const { language } = useLanguage();
+    const t = translations[language].mission;
+
     return (
         <section id="mission" className="mission-impact-section">
             <div className="container">
                 <div className="section-header">
-                    <span className="section-label">Mission & Impact</span>
-                    <h2>Creating Global Bridges, <br /><span className="text-gradient">Empowering Rural Honduras</span></h2>
+                    <span className="section-label">{t.label}</span>
+                    <h2>{t.title1}<br /><span className="text-gradient">{t.titleHighlight}</span></h2>
                 </div>
 
                 <div className="mission-grid">
                     {/* Why This Matters (Poverty Stat) Card */}
                     <div className="impact-card glass-panel">
-                        <div className="card-badge">Why It Matters</div>
-                        <h3>Stable Livelihoods in Rural Communities</h3>
+                        <div className="card-badge">{t.card1Badge}</div>
+                        <h3>{t.card1Title}</h3>
                         <p className="impact-main-text">
-                            Nearly half of Hondurans are estimated to live below the $8.30-per-day poverty line (adjusted for purchasing power). In rural communities, many families depend on informal, seasonal, or agricultural work that is unstable and unpredictable.
+                            {t.card1Main}
                         </p>
                         <p className="impact-sub-text">
-                            <strong>Hola Honey</strong> exists to help change that. Our goal is to create steady demand for Honduran honey while supporting fair, consistent income for the beekeepers and workers who make it possible.
+                            {t.card1Sub}
                         </p>
                     </div>
 
                     {/* U.S. Honey Market Card */}
                     <div className="impact-card glass-panel">
-                        <div className="card-badge">The Opportunity</div>
-                        <h3>The U.S. Honey Market Context</h3>
+                        <div className="card-badge">{t.card2Badge}</div>
+                        <h3>{t.card2Title}</h3>
                         <p className="impact-main-text">
-                            In 2024, U.S. honey consumption hit an all-time high of <strong>688.6 million pounds</strong>. To meet this massive demand, the U.S. imported <strong>562 million pounds</strong> of honey—amounting to roughly <strong>74%</strong> of the total U.S. honey supply.
+                            {t.card2Main}
                         </p>
                         <p className="impact-sub-text">
-                            The U.S. already depends heavily on imported honey. We believe imported honey should do more than fill shelves—it should support the people and communities behind it. Hola Honey makes that connection transparent, ethical, and community-centered.
+                            {t.card2Sub}
                         </p>
                     </div>
                 </div>
@@ -40,7 +45,7 @@ const MissionImpact = () => {
                     <div className="banner-image-wrapper">
                         <img 
                             src="/images/holahoneypics/IMG_8818.jpeg" 
-                            alt="Sunlight filtering through the Honduran trees near the apiary" 
+                            alt={t.quote} 
                             className="banner-img" 
                         />
                         <div className="banner-overlay"></div>
@@ -48,9 +53,9 @@ const MissionImpact = () => {
                     <div className="banner-content">
                         <span className="quote-icon">“</span>
                         <h4>
-                            “When people value our honey, they also value the work, time, and care behind every hive.”
+                            {t.quote}
                         </h4>
-                        <p className="banner-author">— The Beekeepers of Lempira</p>
+                        <p className="banner-author">{t.quoteAuthor}</p>
                     </div>
                 </div>
             </div>

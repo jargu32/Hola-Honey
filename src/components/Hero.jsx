@@ -1,24 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const Hero = () => {
+    const { language } = useLanguage();
+    const t = translations[language].hero;
+
     return (
         <section id="top" className="hero">
             <div className="hero-overlay"></div>
             <div className="hero-content container">
-                <span className="brand-tag">Hola Honey</span>
+                <span className="brand-tag">{t.missionLabel}</span>
                 <h1 className="mission-statement">
-                    Our mission is to build a <span className="text-gradient">Latino-owned</span> honey brand that creates <span className="text-gradient">consistent, dignified income</span> for beekeepers and workers in Honduras.
+                    {t.title1}<span className="text-gradient">{t.titleHighlight}</span>{t.title2}
                 </h1>
                 <p className="mission-sub">
-                    Every jar connects pure Honduran honey with a bigger purpose: fair pay, ethical sourcing, and reinvestment in the communities behind it.
+                    {t.description}
                 </p>
                 <div className="hero-buttons">
                     <button className="btn-primary" onClick={() => document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })}>
-                        Join the Movement
+                        {t.ctaWaitlist}
                     </button>
                     <Link to="/learn-more" className="btn-secondary">
-                        Learn More
+                        {t.ctaLearn}
                     </Link>
                 </div>
             </div>

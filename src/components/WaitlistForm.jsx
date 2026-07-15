@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/dictionary';
 
 const WaitlistForm = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [status, setStatus] = useState('idle'); // idle, submitting, success
+    const { language } = useLanguage();
+    const t = translations[language].waitlist;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,24 +26,24 @@ const WaitlistForm = () => {
         <section id="waitlist" className="waitlist-section">
             <div className="container">
                 <div className="glass-panel waitlist-card">
-                    <h2 className="waitlist-title">Be Part of the Hive</h2>
+                    <h2 className="waitlist-title">{t.title}</h2>
                     <p className="waitlist-desc">
-                        Join our community and get early access to our first batch of authentic, ethically sourced honey.
+                        {t.desc}
                     </p>
 
                     {status === 'success' ? (
                         <div className="success-message">
                             <span className="check-icon">✓</span>
-                            <h3>Welcome to Hola Honey!</h3>
-                            <p>We've added you to the list. Keep an eye on your inbox.</p>
-                            <button className="btn-reset" onClick={() => setStatus('idle')}>Add another</button>
+                            <h3>{t.successTitle}</h3>
+                            <p>{t.successDesc}</p>
+                            <button className="btn-reset" onClick={() => setStatus('idle')}>{t.successReset}</button>
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="waitlist-form">
                             <div className="input-group">
                                 <input
                                     type="email"
-                                    placeholder="Email Address"
+                                    placeholder={t.inputEmail}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -48,17 +52,17 @@ const WaitlistForm = () => {
                                 />
                                 <input
                                     type="tel"
-                                    placeholder="Phone Number (Optional)"
+                                    placeholder={t.inputPhone}
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
                                     className="form-input"
                                     disabled={status === 'submitting'}
                                 />
                                 <button type="submit" className="btn-primary submit-btn" disabled={status === 'submitting'}>
-                                    {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
+                                    {status === 'submitting' ? t.submitting : t.submit}
                                 </button>
                             </div>
-                            <p className="spam-notice">No spam, just sweet updates.</p>
+                            <p className="spam-notice">{t.notice}</p>
                         </form>
                     )}
                 </div>
