@@ -16,21 +16,27 @@ const ProductShowcase = () => {
                         </p>
                         <ul className="feature-list">
                             <li>
-                                <span className="icon">🍯</span>
+                                <div className="icon-wrapper">
+                                    <img src="/images/holahoneypics/raw_unfiltered.png" alt="100% Raw & Unfiltered Icon" className="feature-icon-img" />
+                                </div>
                                 <div>
                                     <strong>100% Raw & Unfiltered</strong>
                                     <p>Retains all natural pollen, enzymes, and beneficial properties.</p>
                                 </div>
                             </li>
                             <li>
-                                <span className="icon">🔥</span>
+                                <div className="icon-wrapper">
+                                    <img src="/images/holahoneypics/never_heated.png" alt="Never Heated Icon" className="feature-icon-img" />
+                                </div>
                                 <div>
                                     <strong>Never Heated</strong>
                                     <p>Cold-handled to protect the delicate honey flavors and active nutrients.</p>
                                 </div>
                             </li>
                             <li>
-                                <span className="icon">🏡</span>
+                                <div className="icon-wrapper">
+                                    <img src="/images/holahoneypics/supports_families.png" alt="Supports Rural Beekeeping Families Icon" className="feature-icon-img" />
+                                </div>
                                 <div>
                                     <strong>Supports Rural Beekeeping Families</strong>
                                     <p>Directly contributes to consistent, dignified incomes in Honduran communities.</p>
@@ -106,10 +112,28 @@ const ProductShowcase = () => {
                     gap: 20px;
                     align-items: flex-start;
                 }
-                .feature-list .icon {
-                    font-size: 1.5rem;
-                    line-height: 1;
-                    padding-top: 2px;
+                .icon-wrapper {
+                    flex-shrink: 0;
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 12px;
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid var(--color-glass-border);
+                    padding: 6px;
+                    transition: var(--transition);
+                }
+                .feature-list li:hover .icon-wrapper {
+                    border-color: var(--color-primary);
+                    background: rgba(217, 119, 6, 0.05);
+                    box-shadow: 0 0 12px rgba(217, 119, 6, 0.15);
+                }
+                .feature-icon-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
                 }
                 .feature-list h3 {
                     font-size: 1.125rem;
