@@ -37,7 +37,7 @@ const LearnMore = () => {
                     {/* Section 2: Beekeeping & Declining Livelihoods */}
                     <section className="detail-section reverse">
                         <div className="detail-image-wrapper">
-                            <img src="/images/holahoneypics/IMG_9151.jpeg" alt="Honduran beekeepers managing hives in Lempira" className="detail-image" />
+                            <img src="/images/holahoneypics/worker.jpg" alt="Honduran beekeepers working at the apiary" className="detail-image contain-fit" />
                         </div>
                         <div className="detail-content">
                             <h2>Supporting Honduran Beekeepers</h2>
@@ -144,6 +144,11 @@ const LearnMore = () => {
                     object-fit: cover;
                     border-radius: 12px;
                     display: block;
+                }
+                .detail-image.contain-fit {
+                    object-fit: contain;
+                    max-height: 520px;
+                    height: auto;
                 }
                 .detail-content h2 {
                     font-size: 2rem;
