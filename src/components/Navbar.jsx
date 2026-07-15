@@ -134,15 +134,7 @@ const Navbar = () => {
                     align-items: center;
                     height: 52px;
                     z-index: 1001;
-                    border: 1px solid rgba(253, 251, 247, 0.75); /* Thin white/cream border */
-                    border-radius: 6px;
-                    padding: 4px 12px;
-                    background: #12100e; /* Match main dark background */
                     transition: var(--transition);
-                }
-                .nav-logo:hover {
-                    border-color: var(--color-primary);
-                    box-shadow: 0 0 10px rgba(217, 119, 6, 0.2);
                 }
                 .logo-img {
                     height: 100%;
