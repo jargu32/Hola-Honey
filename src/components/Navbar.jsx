@@ -27,7 +27,7 @@ const Navbar = () => {
                 includedLanguages: 'en,es',
                 layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
-            }, 'google_translate_element');
+            }, 'google_translate_element_inner');
         };
 
         if (!document.getElementById('google-translate-script')) {
@@ -82,7 +82,10 @@ const Navbar = () => {
                 </nav>
 
                 <div className="nav-actions">
-                    <div id="google_translate_element" className="translate-selector"></div>
+                    <div className="translate-selector-wrapper">
+                        <img src="/images/holahoneypics/translate_symbols.png" alt="Translate" className="translate-icon" />
+                        <div id="google_translate_element_inner"></div>
+                    </div>
                     <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
                         Join Waitlist
                     </a>
@@ -276,12 +279,27 @@ const Navbar = () => {
                 }
 
                 /* Google Translate Custom styling */
-                .translate-selector {
-                    display: inline-block;
+                .translate-selector-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .translate-icon {
+                    height: 24px;
+                    width: auto;
+                    object-fit: contain;
+                    transition: var(--transition);
+                }
+                .translate-selector-wrapper:hover .translate-icon {
+                    transform: scale(1.05);
                 }
                 .goog-te-gadget {
                     font-size: 0 !important;
                     color: transparent !important;
+                }
+                .goog-te-gadget-icon,
+                .goog-te-gadget img {
+                    display: none !important;
                 }
                 .goog-te-gadget .goog-logo-link {
                     display: none !important;
