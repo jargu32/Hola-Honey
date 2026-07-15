@@ -20,6 +20,24 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        window.googleTranslateElementInit = () => {
+            new window.google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es',
+                layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        };
+
+        if (!document.getElementById('google-translate-script')) {
+            const addScript = document.createElement('script');
+            addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+            addScript.setAttribute('id', 'google-translate-script');
+            document.body.appendChild(addScript);
+        }
+    }, []);
+
     const handleNavClick = (e, targetId) => {
         e.preventDefault();
         setIsOpen(false);
@@ -64,6 +82,7 @@ const Navbar = () => {
                 </nav>
 
                 <div className="nav-actions">
+                    <div id="google_translate_element" className="translate-selector"></div>
                     <a href="#waitlist" className="nav-cta btn-primary" onClick={(e) => handleNavClick(e, '#waitlist')}>
                         Join Waitlist
                     </a>
@@ -254,6 +273,56 @@ const Navbar = () => {
                     .nav-actions .nav-cta {
                         display: none;
                     }
+                }
+
+                /* Google Translate Custom styling */
+                .translate-selector {
+                    display: inline-block;
+                }
+                .goog-te-gadget {
+                    font-size: 0 !important;
+                    color: transparent !important;
+                }
+                .goog-te-gadget .goog-logo-link {
+                    display: none !important;
+                }
+                .goog-te-gadget span {
+                    display: none !important;
+                }
+                .goog-te-combo {
+                    background: rgba(255, 255, 255, 0.02) !important;
+                    border: 1px solid var(--color-glass-border) !important;
+                    color: rgba(253, 251, 247, 0.85) !important;
+                    padding: 6px 10px !important;
+                    border-radius: 8px !important;
+                    font-family: var(--font-body) !important;
+                    font-size: 0.825rem !important;
+                    font-weight: 500 !important;
+                    cursor: pointer !important;
+                    outline: none !important;
+                    transition: var(--transition) !important;
+                }
+                .goog-te-combo:hover {
+                    border-color: var(--color-primary) !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    color: var(--color-text) !important;
+                }
+                /* Hide Google Translate top bar frame */
+                iframe.goog-te-banner-frame {
+                    display: none !important;
+                }
+                body {
+                    top: 0px !important;
+                }
+                .goog-te-balloon-frame {
+                    display: none !important;
+                }
+                #goog-gt-tt {
+                    display: none !important;
+                }
+                .goog-text-highlight {
+                    background: transparent !important;
+                    box-shadow: none !important;
                 }
             `}</style>
         </header>
