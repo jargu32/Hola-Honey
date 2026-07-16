@@ -9,7 +9,7 @@ export const translations = {
             waitlist: 'Join Waitlist'
         },
         hero: {
-            missionLabel: 'Latino-Owned & Ethically Sourced',
+            missionLabel: 'Hola Honey',
             title1: 'Our mission is to build a Latino-owned honey brand that creates ',
             titleHighlight: 'consistent, dignified income',
             title2: ' for beekeepers and workers in Honduras.',
@@ -121,7 +121,7 @@ export const translations = {
             waitlist: 'Unirse a la Lista'
         },
         hero: {
-            missionLabel: 'De Propietarios Latinos y Abastecimiento Ético',
+            missionLabel: 'Hola Honey',
             title1: 'Nuestra misión es construir una marca de miel de origen Latino que genere ',
             titleHighlight: 'ingresos constantes y dignos',
             title2: ' para los apicultores y trabajadores en Honduras.',
