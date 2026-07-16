@@ -10,7 +10,7 @@ export const translations = {
         },
         hero: {
             missionLabel: 'Hola Honey',
-            title1: 'Our mission is to build a Latino-owned honey brand that creates ',
+            title1: '',
             titleHighlight: 'consistent, dignified income',
             title2: ' for beekeepers and workers in Honduras.',
             description: 'Every jar connects pure Honduran honey with a bigger purpose: fair pay, ethical sourcing, and reinvestment in the communities behind it.',
@@ -122,7 +122,7 @@ export const translations = {
         },
         hero: {
             missionLabel: 'Hola Honey',
-            title1: 'Nuestra misión es construir una marca de miel de origen Latino que genere ',
+            title1: '',
             titleHighlight: 'ingresos constantes y dignos',
             title2: ' para los apicultores y trabajadores en Honduras.',
             description: 'Cada frasco conecta la miel pura de Honduras con un propósito mayor: pago justo, abastecimiento ético y reinversión en las comunidades detrás de ella.',

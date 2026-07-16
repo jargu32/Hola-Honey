@@ -13,7 +13,15 @@ const Hero = () => {
             <div className="hero-content container">
                 <span className="brand-tag">{t.missionLabel}</span>
                 <h1 className="mission-statement">
-                    {t.title1}<span className="text-gradient">{t.titleHighlight}</span>{t.title2}
+                    {language === 'es' ? (
+                        <>
+                            Nuestra misión es construir una marca de miel <span className="text-gradient">de origen Latino</span> que genere <span className="text-gradient">{t.titleHighlight}</span>{t.title2}
+                        </>
+                    ) : (
+                        <>
+                            Our mission is to build a <span className="text-gradient">Latino-owned</span> honey brand that creates <span className="text-gradient">{t.titleHighlight}</span>{t.title2}
+                        </>
+                    )}
                 </h1>
                 <p className="mission-sub">
                     {t.description}
