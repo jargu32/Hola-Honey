@@ -124,9 +124,11 @@ const Footer = () => {
                     font-size: 0.85rem;
                 }
 
-                @media (max-width: 900px) {
+                @media (max-width: 991px) {
                     .footer-grid {
-                        grid-template-columns: 1fr;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                         gap: 40px;
                         text-align: center;
                     }
@@ -137,8 +139,8 @@ const Footer = () => {
                         align-items: center;
                     }
                     .footer-artist-box {
-                        text-align: left;
-                        max-width: 450px;
+                        text-align: center;
+                        max-width: 100%;
                         margin: 0 auto;
                     }
                 }
