@@ -12,7 +12,6 @@ const Gallery = () => {
         { src: '/images/holahoneypics/IMG_8892.jpeg', altEn: 'Beekeeper inspecting healthy brood frame', altEs: 'Apicultor inspeccionando un bastidor de cría saludable' },
         { src: '/images/holahoneypics/IMG_8894.jpeg', altEn: 'Freshly harvested honey jars in the sunlight', altEs: 'Frascos de miel recién cosechada bajo la luz del sol' },
         { src: '/images/holahoneypics/IMG_8899.jpeg', altEn: 'Wild honeybees active on honeycomb', altEs: 'Abejas melíferas silvestres activas en el panal' },
-        { src: '/images/holahoneypics/IMG_9152.jpeg', altEn: 'Close-up of golden honey harvest', altEs: 'Primer plano de la cosecha de miel dorada' },
         { src: '/images/holahoneypics/IMG_9156.jpeg', altEn: 'Working with smoke to calm the bees', altEs: 'Trabajando con humo para calmar a las abejas' },
         { src: '/images/holahoneypics/IMG_9158.jpeg', altEn: 'Mountain overlook of La Virtud', altEs: 'Vista de las montañas de La Virtud' },
         { src: '/images/holahoneypics/IMG_9160.jpeg', altEn: 'Healthy colony of honeybees', altEs: 'Colonia saludable de abejas melíferas' },
@@ -20,15 +19,20 @@ const Gallery = () => {
         { src: '/images/holahoneypics/IMG_9162.jpeg', altEn: 'Beekeeping harvest day', altEs: 'Día de cosecha de apicultura' }
     ];
 
-    const [visibleCount, setVisibleCount] = useState(6);
+    const isMobileMode = () => {
+        return typeof window !== 'undefined' && window.innerWidth <= 768;
+    };
+
+    const [visibleCount, setVisibleCount] = useState(isMobileMode() ? 2 : 6);
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
     const handleLoadMore = () => {
-        setVisibleCount(prev => Math.min(prev + 6, images.length));
+        const step = isMobileMode() ? 2 : 6;
+        setVisibleCount(prev => Math.min(prev + step, images.length));
     };
 
     const handleShowLess = () => {
-        setVisibleCount(6);
+        setVisibleCount(isMobileMode() ? 2 : 6);
     };
 
     const openLightbox = (index) => {
