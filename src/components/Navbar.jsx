@@ -137,9 +137,9 @@ const Navbar = () => {
                     transition: var(--transition);
                 }
                 .logo-img {
-                    height: 52px;
-                    width: 200px;
-                    object-fit: cover;
+                    height: 100%;
+                    max-height: 52px;
+                    object-fit: contain;
                     transition: var(--transition);
                 }
                 .logo-img:hover {
