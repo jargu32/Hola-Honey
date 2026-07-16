@@ -132,13 +132,13 @@ const Navbar = () => {
                 .nav-logo {
                     display: flex;
                     align-items: center;
-                    height: 60px;
+                    height: 75px;
                     z-index: 1001;
                     transition: var(--transition);
                 }
                 .logo-img {
                     height: 100%;
-                    max-height: 52px;
+                    max-height: 68px;
                     object-fit: contain;
                     transition: var(--transition);
                 }
