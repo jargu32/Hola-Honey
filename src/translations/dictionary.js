@@ -25,7 +25,7 @@ export const translations = {
             rawTitle: '100% Raw & Unfiltered',
             rawDesc: 'Retains all natural pollen, enzymes, and beneficial properties.',
             heatTitle: 'Never Heated',
-            heatDesc: 'Cold-handled to protect the delicate honey flavors and active nutrients.',
+            heatDesc: 'Carefully handled without heat to preserve the honey’s natural antioxidants, enzymes, aroma, and nutritional integrity.',
             familyTitle: 'Supports Rural Beekeeping Families',
             familyDesc: 'Directly contributes to consistent, dignified incomes in Honduran communities.'
         },
@@ -137,7 +137,7 @@ export const translations = {
             rawTitle: '100% Cruda y Sin Filtrar',
             rawDesc: 'Conserva todo el polen natural, enzimas y propiedades beneficiosas.',
             heatTitle: 'Nunca Calentada',
-            heatDesc: 'Manipulada en frío para proteger los delicados sabores de la miel y sus nutrientes activos.',
+            heatDesc: 'Cuidadosamente manipulada sin calor para preservar los antioxidantes naturales, las enzimas, el aroma y la integridad nutricional de la miel.',
             familyTitle: 'Apoya a Familias Apícolas Rurales',
             familyDesc: 'Contribuye directamente a ingresos constantes y dignos en las comunidades hondureñas.'
         },
