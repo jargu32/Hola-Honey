@@ -132,14 +132,14 @@ const Navbar = () => {
                 .nav-logo {
                     display: flex;
                     align-items: center;
-                    height: 80px;
+                    height: 60px;
                     z-index: 1001;
                     transition: var(--transition);
                 }
                 .logo-img {
-                    height: 100%;
-                    max-height: 72px;
-                    object-fit: contain;
+                    height: 52px;
+                    width: 200px;
+                    object-fit: cover;
                     transition: var(--transition);
                 }
                 .logo-img:hover {
